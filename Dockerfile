@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.7
 MAINTAINER Ivan Kuznetsov <kuzma.wm@gmail.com>
 
 RUN apk add --no-cache --virtual build-deps g++ make perl-dev tzdata openssh git curl perl-dbd-pg
@@ -6,7 +6,7 @@ RUN cpan App::cpanminus
 RUN cpanm App::Sqitch --no-wget --notest --quiet
 RUN rm -rf /root/.cpan
 
-FROM postgres:9.6.5-alpine
+FROM postgres:10.3-alpine
 
 MAINTAINER Ivan Kuznetsov <kuzma.wm@gmail.com>
 
@@ -26,4 +26,3 @@ COPY --from=0 /usr/local/lib/perl5 /usr/local/lib/perl5
 
 COPY --from=0 /usr/local/share/perl5 /usr/local/share/perl5
 #
-
