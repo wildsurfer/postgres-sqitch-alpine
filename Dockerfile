@@ -6,7 +6,7 @@ RUN cpan App::cpanminus
 RUN cpanm App::Sqitch --no-wget --notest --quiet
 RUN rm -rf /root/.cpan
 
-FROM postgres:10.3-alpine
+FROM postgres:12.1-alpine
 
 MAINTAINER Ivan Kuznetsov <kuzma.wm@gmail.com>
 
