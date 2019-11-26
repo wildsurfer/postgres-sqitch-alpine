@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.10.3
 MAINTAINER Ivan Kuznetsov <kuzma.wm@gmail.com>
 
 RUN apk add --no-cache --virtual build-deps g++ make perl-dev tzdata openssh git curl perl-dbd-pg
